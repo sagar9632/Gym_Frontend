@@ -1,0 +1,562 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  background: linear-gradient(180deg, #1b1b2f, #23233a);
+  color: #fff;
+  transition: transform 0.3s ease, width 0.3s ease;
+  z-index: 1000;
+}
+
+/* DESKTOP COLLAPSE */
+.sidebar.closed:not(.mobile) {
+  width: 70px;
+}
+
+.sidebar.closed:not(.mobile) .menu span,
+.sidebar.closed:not(.mobile) .logo {
+  display: none;
+}
+
+/* MOBILE OFFCANVAS */
+.sidebar.mobile {
+  transform: translateX(-100%);
+}
+
+.sidebar.mobile.open {
+  transform: translateX(0);
+}
+
+/* HEADER */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.sidebar.closed > .sidebar-header{
+  padding:20px;
+}
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.logo .pro {
+  color: orange;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+/* MENU */
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  color: white;
+  text-decoration: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.menu a:hover,
+.menu a.active {
+  background: rgba(255,255,255,0.1);
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+/* MOBILE BREAKPOINT */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
+@media (min-width: 370px) and (max-width: 768px) {
+  .dashboard-header{
+    justify-content: center;
+    display: flex;
+  }
+}
+.sidebar.mobile .sidebar-header .toggle-btn {
+  position: relative;
+  left: 70px;
+}
+.sidebar.mobile.open .sidebar-header .toggle-btn {
+  position: relative;
+  left: 0px;
+}
+.layout {
+  display: flex;
+}
+
+.content {
+  margin-left: 240px;
+  padding: 20px;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.content.closed {
+  margin-left: 70px;
+}
+
+
+/* dashboard css start */
+/* Container */
+.dashboard-container {
+  min-height: 100vh;
+  background: #efefef;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Header */
+.dashboard-header {
+  background: #1e1e2f;
+  color: #fff;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Grid */
+.dashboard-grid {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Cards */
+.dashboard-card {
+  height: 140px;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+/* Colors */
+.green {
+  background: #1aa300;
+}
+
+.red {
+  background: #a80000;
+}
+
+.light-green {
+  background: #6fd64a;
+}
+
+.blue {
+  background: #0b1d63;
+}
+
+.purple {
+  background: #6a1374;
+}
+
+.brown {
+  background: #4a1f1f;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+     }
+ .dashboard-header{
+        justify-content: center !important;
+        font-size: 13px !important;
+    }
+    a.userlist-link {
+      position: relative;
+      left: 50px;
+    }
+  .sidebar.mobile .sidebar-header .toggle-btn
+  {
+      position: relative;
+      left: 70px;
+      top: -20px !important;
+    }
+  .dashboard-card {
+    height: 110px;
+  }
+  .membership-grid {
+    padding: 10px;
+  }
+ .card {
+    width: -webkit-fill-available !important;
+  }
+  .membership-grid {
+    display: block !important;
+  }
+}
+.dashboard-card >h3 {
+    margin: 0;
+}
+/* dashboard css end */
+form select {
+  background-color: white;
+}
+/* membership css start */
+.membership-container {
+  background: #ededed;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.membership-header {
+  background: linear-gradient(90deg, #1b1b2f, #2c2c54);
+  color: #fff;
+  padding: 15px 30px;
+  font-weight: 600;
+}
+
+.membership-grid {
+    display: flex;
+    width: -webkit-fill-available;
+}
+
+.card {
+    width: 48%;
+    margin:10px;
+    float: left;
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.card h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+form input,
+form select {
+    width: -webkit-fill-available;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #0a2bbf;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #071e85;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+}
+table td{
+  font-size: 12px;
+}
+.edit-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .membership-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.membership-header{
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+table th{
+  background: linear-gradient(180deg, #1b1b2f, #23233a);
+  color:white;
+}
+/* membership css end */
+
+/* enroll css start */
+
+
+.enroll-header {
+  background: linear-gradient(90deg, #111, #333);
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.enroll-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.enroll-card h3 {
+  margin: 20px 0 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.enroll-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: #0b2bd6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.enroll-btn:hover {
+  background: #081f9c;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* enroll css end */
+/* userlist css start */
+.btn {
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn.pay {
+  background: #0d9488;
+  color: white;
+}
+
+.btn.print {
+  background: #1d4ed8;
+  color: white;
+}
+
+/* Table */
+.table-wrapper {
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f1f5f9;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+/* Amount colors */
+.paid {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header h2 {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}
+a.userlist-link
+ {
+    color: #f67100;
+    text-decoration: none;
+}
+/* css end */
+/* user list css start */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  width: 350px;
+  border-radius: 8px;
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+}
+
+.modal label {
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn.cancel {
+  background: #ccc;
+}
+input[readonly] {
+  background-color: #f2f2f2;   /* light gray */
+  color: #555;
+  cursor: not-allowed;
+}
+.renew-btn{
+  background-color: #007bff;
+  padding:8px 20px;
+  color:white;
+  border:0;
+  cursor: pointer;
+}
+.search-box {
+ float:right;
+}
+/* css end */
